@@ -12,7 +12,7 @@ client.once('ready', () => {
 client.on("message", function(message) {
     if (message.author.bot || !message.content.startsWith(prefix)) return;
    
-    if (message.member.roles.cache.has(role => role === 'Fresita 🍓')) {
+    if (message.author.id === '<@264477975628480514>') {
         
         message.react('819963117534314506');
     };
