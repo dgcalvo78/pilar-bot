@@ -3,9 +3,11 @@ const config = require("./config.json");
 const client = new Discord.Client();
 const prefix = "!"
 
+/*
 client.once('ready', () => {
     console.log('Ready!');
 });
+*/
 
 client.on("message", function(message) {
     if (message.author.bot || !message.content.startsWith(prefix)) return;
