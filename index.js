@@ -19,7 +19,7 @@ client.on("message", function(message) {
 
     if (message.author.id === '264477975628480514') message.react('819963117534314506');//reacciona a pilar con :eyes2:
 
-    if (message.author.id === '577134098066440234' && message.channel.id === '708800677450743879') {
+    if (message.author.id === '577134098066440234' && message.channel.id !== '578984251849048064') {
         message.channel.send('amigo te equivocaste de canal, andate a <#578984251849048064>') //mensajes de musica en pilares te mandan a musica
     }; 
 
