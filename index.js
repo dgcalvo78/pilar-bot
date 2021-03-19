@@ -8,10 +8,10 @@ client.once('ready', () => {
    client.user.setPresence({
        status:'online',
        activity: {
-        name:'pilar',
+        name:' a Pilar',
         type: 'WATCHING'
       } 
-   })
+   });
 });
 
 
