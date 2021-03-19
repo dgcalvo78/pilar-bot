@@ -41,8 +41,8 @@ client.on("message", function(message) {
 
 client.login(config["BOT-TOKEN"]);
 function hourmsg(hour, message) {
-    if (hour > 23 & hour < 5) {
-        message.reply('se acabó el dia pilarense por hoy...<:pilartriste:723321962432036894>');
+    if (hour > 23 && hour < 6) {
+        message.reply('se acabó el dia pilarense por hoy...<:pilartriste:723321962432036894>'); 
     };
 }
 
