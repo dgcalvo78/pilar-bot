@@ -3,7 +3,7 @@ const config = require("./config.json");
 const client = new Discord.Client();
 const prefix = "!"
 
-
+//estado del bot en discord
 client.once('ready', () => {
    client.user.setPresence({
        status:'online',
@@ -13,7 +13,6 @@ client.once('ready', () => {
       } 
    });
 });
-
 
 client.on("message", function(message) {
 
