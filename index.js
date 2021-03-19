@@ -12,6 +12,11 @@ client.once('ready', () => {
 client.on("message", function(message) {
     if (message.author.bot || !message.content.startsWith(prefix)) return;
 
+    if(message.member.roles.find(r => r.name === 'Fresita 🍓')) {
+        const reactionEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'eyes2')
+        message.react(reactionEmoji);
+    };
+
     const commandBody = message.content.slice(prefix.length);
     const args = commandBody.split(' ');
     const command = args.shift().toLowerCase();
@@ -37,6 +42,7 @@ client.on("message", function(message) {
 
         };
     };
+    
 });
 
 client.login(config["BOT-TOKEN"]);
