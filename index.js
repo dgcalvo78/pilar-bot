@@ -17,16 +17,18 @@ client.once('ready', () => {
 
 client.on("message", function(message) {
 
-    if (message.author.id === '264477975628480514') message.react('819963117534314506');
+    if (message.author.id === '264477975628480514') message.react('819963117534314506');//reacciona a pilar con :eyes2:
 
-    if (message.author.bot || !message.content.startsWith(prefix) ) return;
-   
-    
+    if (message.author.id === '577134098066440234' && message.channel.id === '708800677450743879') {
+        message.channel.send('amigo te equivocaste de canal, andate a <#578984251849048064>') //mensajes de musica en pilares te mandan a musica
+    }; 
+
+    if (message.author.bot || !message.content.startsWith(prefix) ) return;     
 
     const commandBody = message.content.slice(prefix.length);
     const args = commandBody.split(' ');
     const command = args.shift().toLowerCase();
-
+//comandos
     if (command === "bracket") {
         message.reply('mañana juega G2 y pasao tu puta madre <:jhinzhao:779837354659676269>');
     };
