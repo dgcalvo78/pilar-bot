@@ -3,11 +3,17 @@ const config = require("./config.json");
 const client = new Discord.Client();
 const prefix = "!"
 
-/*
+
 client.once('ready', () => {
-    console.log('Ready!');
+   client.user.setPresence({
+       status:'online',
+       activity: {
+        name:'pilar',
+        type: 'WATCHING'
+      } 
+   })
 });
-*/
+
 
 client.on("message", function(message) {
     if (message.author.bot || !message.content.startsWith(prefix) && message.author.id !== '264477975628480514') return;
