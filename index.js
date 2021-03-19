@@ -32,7 +32,7 @@ client.on("message", function(message) {
     };
 
     if (command === "ayuda") {
-        message.send('r');
+        client.message.send('r');
     };
 
     if(command === "pilar"){
