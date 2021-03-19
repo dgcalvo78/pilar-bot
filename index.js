@@ -10,12 +10,9 @@ client.once('ready', () => {
 */
 
 client.on("message", function(message) {
-    if (message.author.bot || !message.content.startsWith(prefix) && message.author.id !== '<@!177805783583424521>') return;
+    if (message.author.bot || !message.content.startsWith(prefix) && message.author.id !== '264477975628480514') return;
    
-    if (message.author.id === '<@!177805783583424521>') {
-        
-        message.react('819963117534314506');
-    };
+    message.react('819963117534314506');
 
     const commandBody = message.content.slice(prefix.length);
     const args = commandBody.split(' ');
