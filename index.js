@@ -32,20 +32,19 @@ client.on("message", function(message) {
 
             message.reply('hoy no es dia pilarense... <:pilartriste:723321962432036894>');
             
-        } else {
+        }
 
-            hourmsg(hour, message);
-            message.reply('hoy si es dia pilarense!! <:pilarcontenta:714780527546204180>');
+        if (hour >= 22 && hour < 7) {
+
+            message.reply('se acabó el dia pilarense por hoy...<:pilartriste:723321962432036894>'); 
 
         };
+
+        message.reply('hoy si es dia pilarense!! <:pilarcontenta:714780527546204180>');
+        
     };
     
 });
 
 client.login(config["BOT-TOKEN"]);
-function hourmsg(hour, message) {
-    if (hour > 23 && hour < 6) {
-        message.reply('se acabó el dia pilarense por hoy...<:pilartriste:723321962432036894>'); 
-    };
-}
 
