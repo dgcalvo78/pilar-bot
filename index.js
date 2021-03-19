@@ -24,13 +24,15 @@ client.on("message", function(message) {
        
         const weekDay = new Date().getDay();
         const monthDay = new Date().getDate();
+        const hour = new Date ().getHours();
 
         if(weekDay === 0 || weekDay > 4 && monthDay % 2 === 0){
 
             message.reply('hoy no es dia pilarense... <:pilartriste:723321962432036894>');
             
         } else {
-            
+
+            hourmsg(hour, message);
             message.reply('hoy si es dia pilarense!! <:pilarcontenta:714780527546204180>');
 
         };
@@ -38,3 +40,9 @@ client.on("message", function(message) {
 });
 
 client.login(config["BOT-TOKEN"]);
+function hourmsg(hour, message) {
+    if (hour > 23 & hour < 5) {
+        message.reply('se acabó el dia pilarense por hoy...<:pilartriste:723321962432036894>');
+    };
+}
+
