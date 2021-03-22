@@ -1,8 +1,17 @@
 const Discord = require("discord.js");
+const fs = require("fs");
 const config = require("./config.json");
-const isEven = require("./utils/isEven");
-const isWeekend = require("./utils/isWeekend");
+
 const client = new Discord.Client();
+client.commands = new Discord.Collection();
+
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+
+for (const file of commandFiles) {
+	const command = require(`./commands/${file}`);
+	client.commands.set(command.name, command);
+}
+
 const prefix = "!";
 
 //estado del bot en discord
@@ -16,12 +25,13 @@ client.once('ready', () => {
    });
 });
 
+//evento mensaje 
 client.on("message", function(message) {
 
     //if (message.author.id === '264477975628480514') message.react('819963117534314506');//reacciona a pilar con :eyes2:
 
     if (message.author.id === '577134098066440234' && message.channel.id !== '578984251849048064') {
-        message.channel.send('amigo te equivocaste de canal, andate a <#578984251849048064>'); //mensajes de musica en pilares te mandan a musica
+        message.channel.send('amigo te equivocaste de canal, andate a <#578984251849048064>'); //mensajes de musica en pilares te mandan a musica (no funca)
     }; 
 
     if (message.author.bot || !message.content.startsWith(prefix) ) return;     
@@ -30,41 +40,17 @@ client.on("message", function(message) {
     const args = commandBody.split(' ');
     const command = args.shift().toLowerCase();
     
-    //comandos
-    if (command === "bracket") {
-        message.reply('mañana juega G2 y pasao tu puta madre <:jhinzhao:779837354659676269>');
-        return;
-    };
+    //ejecutar comandos
+    if (!client.commands.has(command)) return;
 
-    if (command === "ayuda") {
-        message.channel.send('r');
-        return;
-    };
+    try {
+	    client.commands.get(command).execute(message, args);
 
-    if(command === "pilar"){
-       
-        const weekDay = new Date().getDay();
-        const monthDay = new Date().getDate();
-        const hour = new Date ().getHours();
+    } catch (error) {
+	    console.error(error);
+	    message.reply('manín te repasaste de listo');
+    }
 
-        if(isWeekend(weekDay) && isEven(monthDay) || weekDay === 1){
-
-            message.reply('hoy no es dia pilarense... <:pilartriste:723321962432036894>');
-            return;
-            
-        }
-
-        if (hour >= 22 && hour < 7) {
-
-            message.reply('se acabó el dia pilarense por hoy...<:pilartriste:723321962432036894>'); 
-            return;
-
-        };
-
-        message.reply('hoy si es dia pilarense!! <:pilarcontenta:714780527546204180>');
-        return;
-        
-    };
     
 });
 
