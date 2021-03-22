@@ -1,5 +1,5 @@
-const isEven = require("./utils/isEven");
-const isWeekend = require("./utils/isWeekend");
+const isEven = require("../utils/isEven");
+const isWeekend = require("../utils/isWeekend");
 
 module.exports = {
 	name: 'pilar',
