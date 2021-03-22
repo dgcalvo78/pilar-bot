@@ -41,7 +41,10 @@ client.on("message", function(message) {
     const command = args.shift().toLowerCase();
     
     //ejecutar comandos
-    if (!client.commands.has(command)) return;
+    if (!client.commands.has(command)) {
+        message.reply('manín te repasaste de listo');
+        return;
+    }
 
     try {
 	    client.commands.get(command).execute(message, args);
