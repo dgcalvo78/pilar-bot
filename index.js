@@ -36,8 +36,8 @@ client.on("message", function(message) {
 
     if (message.author.bot || !message.content.startsWith(prefix) ) return;     
 
-    const commandBody = message.content.slice(prefix.length);
-    const args = commandBody.split(' ');
+    
+    const args = message.content.slice(prefix.length).trim().split(/ +/);
     const command = args.shift().toLowerCase();
     
     //ejecutar comandos
