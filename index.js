@@ -1,7 +1,9 @@
 const Discord = require("discord.js");
 const config = require("./config.json");
+const isOdd = require("./utils/isOdd");
+const isWeekend = require("./utils/isWeekend");
 const client = new Discord.Client();
-const prefix = "!"
+const prefix = "!";
 
 //estado del bot en discord
 client.once('ready', () => {
@@ -45,7 +47,7 @@ client.on("message", function(message) {
         const monthDay = new Date().getDate();
         const hour = new Date ().getHours();
 
-        if(weekDay === 0 || weekDay > 4 && monthDay % 2 === 0){
+        if(isWeekend(weekDay) && isOdd(monthDay) || weekDay === 1){
 
             message.reply('hoy no es dia pilarense... <:pilartriste:723321962432036894>');
             return;
