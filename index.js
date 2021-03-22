@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const config = require("./config.json");
-const isOdd = require("./utils/isOdd");
+const isEven = require("./utils/isEven");
 const isWeekend = require("./utils/isWeekend");
 const client = new Discord.Client();
 const prefix = "!";
@@ -47,7 +47,7 @@ client.on("message", function(message) {
         const monthDay = new Date().getDate();
         const hour = new Date ().getHours();
 
-        if(isWeekend(weekDay) && isOdd(monthDay) || weekDay === 1){
+        if(isWeekend(weekDay) && isEven(monthDay) || weekDay === 1){
 
             message.reply('hoy no es dia pilarense... <:pilartriste:723321962432036894>');
             return;
@@ -63,6 +63,7 @@ client.on("message", function(message) {
 
         message.reply('hoy si es dia pilarense!! <:pilarcontenta:714780527546204180>');
         return;
+        
     };
     
 });
