@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const fs = require("fs");
-const config = require("./config.json");
+const TOKEN = process.env.BOT_TOKEN
+
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -31,7 +32,7 @@ client.on("message", function(message) {
     //if (message.author.id === '264477975628480514') message.react('819963117534314506');//reacciona a pilar con :eyes2:
 
     if (message.author.id === '577134098066440234' && message.channel.id !== '578984251849048064') {
-        message.channel.send('amigo te equivocaste de canal, andate a <#578984251849048064>'); //mensajes de musica en pilares te mandan a musica (no funca)
+        message.channel.send('manín te equivocaste de canal, andate a <#578984251849048064>'); //mensajes de musica en pilares te mandan a musica (no funca)
     }; 
 
     if (message.author.bot || !message.content.startsWith(prefix) ) return;     
@@ -51,11 +52,11 @@ client.on("message", function(message) {
 
     } catch (error) {
 	    console.error(error);
-	    message.reply('manín te repasaste de listo');
+	    message.reply('ahaha menudo error...');
     }
 
     
 });
 
-client.login(config["BOT-TOKEN"]);
+client.login(TOKEN);
 
