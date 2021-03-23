@@ -39,16 +39,18 @@ client.on("message", function(message) {
 
     
     const args = message.content.slice(prefix.length).trim().split(/ +/);
-    const command = args.shift().toLowerCase();
+    const commandName = args.shift().toLowerCase();
     
     //ejecutar comandos
-    if (!client.commands.has(command)) {
+    if (!client.commands.has(commandName)) {
         message.reply('manín te repasaste de listo');
         return;
     }
+    
+    const command = client.commands.get(commandName);
 
     try {
-	    client.commands.get(command).execute(message, args);
+	    command.execute(message,args)
 
     } catch (error) {
 	    console.error(error);
