@@ -30,6 +30,7 @@ client.once('ready', () => {
 //evento mensaje 
 client.on("message", function(message) {
 
+    console.log(message);
     //if (message.author.id === '264477975628480514') message.react('819963117534314506');//reacciona a pilar con :eyes2:
 
     if (message.author.id === '177805783583424521' /*&& message.channel !== musicchannel*/) {
