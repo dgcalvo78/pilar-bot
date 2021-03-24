@@ -4,7 +4,8 @@
   "description": "pilarense",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "debug": "nodemon index.js"
   },
   "author": "danig",
   "license": "ISC",
@@ -13,5 +14,8 @@
   },
   "engines":{
     "node": "v10.13.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }
