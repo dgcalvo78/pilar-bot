@@ -5,6 +5,8 @@ module.exports = {
 	name: 'pilar',
 	description: 'es hoy dia pilarense? ',
 	execute(message, args) {
+
+        
 		const weekDay = new Date().getDay();
         const monthDay = new Date().getDate();
         const hour = new Date ().getHours();
